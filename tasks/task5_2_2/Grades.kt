@@ -9,6 +9,6 @@
 fun main(args: Array<String>){
     for (markText in args){
         var mark = markText.toInt()
-        println(grade(mark))
+        println("$mark is ${grade(mark)}")
     }
 }
