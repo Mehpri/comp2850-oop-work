@@ -1,17 +1,19 @@
 fun main() {
-    var attempt = 0
+    var attempt = 1
     println("Enter the name of the file that contains the words you want to use!")
     val filename = readln()
-    readWordList(filename)
-    pickRandomWord(words)
-    while (guess != target && attempt != 11){
-        attempt += 1
-        obtainGuess(attempt)
-        evaluateGuess(guess,target)
+    val words = readWordList(filename)
+    val target = pickRandomWord(words)
+
+    var guess = ""
+    while (guess != target && attempt <= 10){
+        guess = obtainGuess(attempt)
+        val matches = evaluateGuess(guess,target)
         displayGuess(guess,matches)
+        attempt += 1
     }
     if (guess == target){
-        println("congratulation you guessed the word $target and completed it in $attempt number of attempts")
+        println("Congratulation you guessed the word $target and completed it in $attempt attempts")
     }
     else{
         println("You ran out of attempts! The word was $target thanks for playing try again!")

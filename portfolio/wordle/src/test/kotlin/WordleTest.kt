@@ -15,8 +15,8 @@ class WordleTest : StringSpec({
     }
 
     "2: All the words should be read from words.txt and added to a mutable list"{
-        filename = "data/words.txt"
-        readWordList(filename)
+        val filename = "data/words.txt"
+        val words = readWordList(filename)
         words.size shouldBe 2315
         words[0] shouldBe "ABACK"
     }
